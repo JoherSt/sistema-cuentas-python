@@ -5,13 +5,13 @@ def pedir_entero(mensaje):
         try:
             return int(input(mensaje))
         except ValueError:
-            print(" Debes ingresar un número válido")
+            print(" Debes ingresar un número válido") 
 
 def pedir_bool(mensaje):
     while True:
         valor = input(mensaje + " (Si/No): ").strip().lower()
         if valor == "si":
-            return True
+            return True 
         elif valor == "no":
             return False
         else:
@@ -19,7 +19,7 @@ def pedir_bool(mensaje):
 
 def agregar_equipo():
     print("=== Registrando un nuevo equipo ===")
-    
+
     numero_inventario = pedir_entero("Ingrese el N°Inventario: ")
     numero_activo = pedir_entero("Ingrese el Número del Activo: ")
     persona_a_cargo = input("Ingrese el nombre de la persona a cargo de este equipo: ")
@@ -28,15 +28,7 @@ def agregar_equipo():
     contraseña_equipo = input("Ingrese la Contraseña: ")
     modelo = input("Modelo: ")
     marca = input("Ingrese la Marca: ")
-    while True:
-        serial = input("Ingrese Número de serie: ")
-        
-        serial_existe = any(equipo["serial"] == serial for eq in equipos)
-        if serial_existe:   
-            print(" Error: El número de serie ya existe. Ingrese uno diferente.")
-        else:
-            break 
-    
+    serial = input("Ingrese Número de serie: ")
     modo_bios = input("Ingrese el Modo de Bios: ")
     serie_bios = input("Ingrese la Serie de Bios: ")
     procesador = input("Ingrese el Procesador: ")
@@ -49,7 +41,7 @@ def agregar_equipo():
     valor_comercializacion = pedir_entero("Ingrese el valor de comercialización: ")
     diferencia = valor_costo - valor_comercializacion 
     print(f"La diferencia es {diferencia}")
-    tiene_office = pedir_bool("¿El equipo tiene Office instalado?")
+    tiene_office = pedir_bool("¿El equipo tiene Office instalado?") 
     tiene_windows = pedir_bool("¿El equipo tiene Windows instalado?")
 
     equipo = {
@@ -104,13 +96,70 @@ def buscar_equipo():
 
     print(" Equipo no encontrado ")
 
+def eliminar_equipo():
+    if not equipos:
+        print("No hay equipos Registrados")
+        return
+    
+    numero = pedir_entero("Por favor ingresa el activo que deseas eliminar: ")
+
+    print("Lista de equipos")
+    for equipo in equipos:
+        if equipo["numero_activo"] == numero:
+            equipos.remove(equipo)
+            print("el quipo se elimino Correctamente")
+            return
+        print("No hay equipos Registrados")
+
+
+def editar_equipo():
+    if not equipos:
+        print("No hay equipos registrados.")
+        return
+
+    numero = pedir_entero("Ingresa el numero_activo del equipo a editar: ")
+
+    for equipo in equipos:
+        if equipo["numero_activo"] == numero:
+
+            print(" Equipo encontrado. Datos actuales: ")
+            for clave, valor in equipo.items():
+                print(f"{clave}: {valor}")
+
+            print(" Escribe el nuevo valor o presiona ENTER para dejarlo igual.")
+
+            for clave in equipo:
+                if clave == "diferencia":
+                    continue  
+
+                nuevo_valor = input(f"{clave} ({equipo[clave]}): ")
+
+                if nuevo_valor:
+                    if clave in ["numero_inventario", "numero_activo", "valor_costo", "valor_comercializacion"]:
+                        equipo[clave] = int(nuevo_valor)
+                    elif clave in ["tiene_office", "tiene_windows"]:
+                        equipo[clave] = nuevo_valor.lower() == "si"
+                    else:
+                        equipo[clave] = nuevo_valor
+
+            
+            equipo["diferencia"] = equipo["valor_comercializacion"] - equipo["valor_costo"]
+
+            print(" Equipo actualizado correctamente.")
+            return
+
+    print(" No se encontró un equipo con ese numero.")
+
+
 def menu():
     while True:
         print("==== MENÚ INVENTARIO ====")
         print("1. Agregar equipo")
         print("2. Mostrar equipos")
         print("3. Buscar equipo por serial")
-        print("4. Salir")
+        print("4. Eliminar Equipo")
+        print("5. Editar")
+        print("6. Salir")
 
         opcion = input(" Seleccione una opción: ")
 
@@ -121,6 +170,10 @@ def menu():
         elif opcion == "3":
             buscar_equipo()
         elif opcion == "4":
+            eliminar_equipo()
+        elif opcion == "5":
+            editar_equipo()
+        elif opcion == "6":
             print("Saliendo del programa")
             break
         else:
