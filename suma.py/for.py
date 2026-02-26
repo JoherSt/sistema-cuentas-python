@@ -57,7 +57,7 @@ def mostrar_estudiantes():
         return
                         
     for i, estudiante in enumerate(estudiantes, 1):
-        print(f"\n=== Estudiante {i} ===")
+        print(f"=== Estudiante {i} ===")
         print(f"Nombre: {estudiante['nombre']}")
         print(f"Edad: {estudiante['edad']}")
         print(f"Nota 1: {estudiante['nota1']}")
