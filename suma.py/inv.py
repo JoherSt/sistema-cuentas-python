@@ -126,7 +126,7 @@ def editar_equipo():
             for clave, valor in equipo.items():
                 print(f"{clave}: {valor}")
 
-            print(" Escribe el nuevo valor o presiona ENTER para dejarlo igual.")
+            print(" Escribe el Nuevo valor o presiona ENTER para dejarlo igual.")
 
             for clave in equipo:
                 if clave == "diferencia":
