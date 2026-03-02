@@ -32,8 +32,8 @@ def agregar_equipo():
     modo_bios = input("Ingrese el Modo de Bios: ")
     serie_bios = input("Ingrese la Serie de Bios: ")
     procesador = input("Ingrese el Procesador: ")
-    ram = input("Ingrese la Memoria Ram: ")
-    almacenamiento = input("Ingrese el Almacenamiento del equipo: ")
+    ram = pedir_entero("Ingrese la Memoria Ram: ")
+    almacenamiento = pedir_entero("Ingrese el Almacenamiento del equipo: ")
     sistema_operativo = input("Ingrese el Sistema Operativo: ")
     estado = input("Estado (Activo / Inactivo): ")
     anotaciones = input("Ingrese las fallas del equipo (Opcional): ")
@@ -126,7 +126,7 @@ def editar_equipo():
             for clave, valor in equipo.items():
                 print(f"{clave}: {valor}")
 
-            print(" Escribe el Nuevo valor o presiona ENTER para dejarlo igual.")
+            print("Escribe el Nuevo valor o presiona ENTER para dejarlo igual.")
 
             for clave in equipo:
                 if clave == "diferencia":
