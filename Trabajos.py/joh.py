@@ -36,7 +36,6 @@ def listar_equipos():
             print(f"marca {equipo['marca']}")
             print(f"ram {equipo['ram']} GB")
             print(f"almacenamiento {equipo['almacenamiento']} GB")
-            return 
         
 def buscar_codigo():
         if not equipos:
@@ -50,9 +49,8 @@ def buscar_codigo():
                 print(f"Se encontro el equipo: {codigo}")
                 print(equipo)
                 return
-            else:
-                print("No se encontro ningun Equipo con este codigo: ")
-                break
+
+            print("No se encontro ningun Equipo con este codigo: ")
 
 
 def editar_equipo():
