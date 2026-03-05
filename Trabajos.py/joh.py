@@ -44,12 +44,15 @@ def buscar_codigo():
         
         codigo = input("Ingresa el codigo para buscar el equipo: ")
         
+        encontrado = False
         for equipo in equipos:
             if equipo['codigo'] == codigo:
                 print(f"Se encontro el equipo: {codigo}")
                 print(equipo)
-                return
-
+                encontrado = True
+                break
+        
+        if not encontrado:
             print("No se encontro ningun Equipo con este codigo: ")
 
 
@@ -83,12 +86,15 @@ def eliminar():
     
     codigo = input("Ingresa el codigo que deseas eliminar: ")
 
+    encontrado = False
     for equipo in equipos:
         if equipo["codigo"] == codigo:
             equipos.remove(equipo)
             print("El equipo fue Eliminado Exitosamente")
-            return
-    else:
+            encontrado = True
+            break
+    
+    if not encontrado:
         print("No se Encontro Ningun Equipo con este codigo")
 
         
