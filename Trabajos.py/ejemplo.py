@@ -93,4 +93,3 @@ def mostrar_equipos():
 
 
 
-
