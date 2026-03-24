@@ -3,7 +3,8 @@ equipos = []
 def pedir_entero (mensaje):
     while True:
         try:
-             return int(input(mensaje)) 
+             valor =  int(input(mensaje)) 
+             return valor
         except ValueError:
             print("por favor Ingresa un numero valido")
             
