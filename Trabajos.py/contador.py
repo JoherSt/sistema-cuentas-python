@@ -65,7 +65,7 @@ def menu():
         print("==BIENVENIDO==")
         print("1.Agreagar Estudiante: ")
         print("2.Ver Estudiantes: ")
-        print("3.Buscar Estudiante: ")
+        print("3.Buscar Estudiante: ") 
         print("4.Eliminar Estudiante: ")
         print("5.Salir: ")
 
