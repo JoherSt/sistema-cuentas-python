@@ -1,7 +1,12 @@
-#from calculador import operacion 
-from paquete.inventario import  eliminar_equipo 
+from paquete.calculadora import operacion
+from paquete.datos import Saludar as saludo
+from paquete.inventario import menu
+
+operacion()
+saludo()
+menu()
 
 
-#print(f"Resultado {operacion}")
 
-eliminar_equipo()
+
+

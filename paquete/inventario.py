@@ -17,7 +17,7 @@ def pedir_bool(mensaje):
             else:
                 print(" Debes ingresar Si o No")
 
-def agregar_equipo()    :
+def agregar_equipo():
     print("=== Registrando un nuevo equipo ===")
 
     numero_inventario = pedir_entero("Ingrese el N°Inventario: ")
@@ -39,8 +39,8 @@ def agregar_equipo()    :
     anotaciones = input("Ingrese las fallas del equipo (Opcional): ")
     valor_costo = pedir_entero("Ingrese el valor de costo del equipo: ")
     valor_comercializacion = pedir_entero("Ingrese el valor de comercialización: ")
-    diferencia = valor_costo - valor_comercializacion 
-    print(f"La diferencia es {diferencia}")
+    diferencia = valor_comercializacion - valor_costo
+    print(f"La diferencia es ${diferencia}")
     tiene_office = pedir_bool("¿El equipo tiene Office instalado?") 
     tiene_windows = pedir_bool("¿El equipo tiene Windows instalado?")
 
@@ -87,29 +87,34 @@ def buscar_equipo():
     serial_buscar = input("Ingrese el serial a buscar: ")
 
     for equipo in equipos:
-            if equipo["serial"] == serial_buscar:
-                print(" Equipo encontrado: ")
-                for clave, valor in equipo.items():
-                    print(f"{clave}: {valor}")
-                print()
-                return
-
-print(" Equipo no encontrado ")
+        if equipo["serial"] == serial_buscar:
+            print(" Equipo encontrado: ")
+            for clave, valor in equipo.items():
+                print(f"{clave}: {valor}")
+            print()
+            return
+    print("Equipo no encontrado.")
 
 def eliminar_equipo():
     if not equipos:
-        print("No hay equipos Registrados")
-        return
+     print("No hay equipos registrados.")
+        
     
     numero = pedir_entero("Por favor ingresa el activo que deseas eliminar: ")
 
-    print("Lista de equipos")
+    encontrado = False
     for equipo in equipos:
         if equipo["numero_activo"] == numero:
-            equipos.remove(equipo)
-            print("el quipo se elimino Correctamente")
-            return
-        print("No hay equipos Registrados")
+            confirmar = input("¿Confirmar eliminación? (si/no): ")
+            if confirmar.lower() == "si":
+                equipos.remove(equipo)
+                print("El equipo se eliminó correctamente.")
+            else:
+                print("Eliminación cancelada.")
+            encontrado = True
+            break
+    if not encontrado:
+        print("No se encontró el equipo.")
 
 
 def editar_equipo():
