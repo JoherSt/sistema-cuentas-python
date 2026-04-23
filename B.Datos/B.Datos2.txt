@@ -1,0 +1,43 @@
+create table clients (
+    id BIGINT (10) not null PRIMARY KEY AUTO_INCREMENT,
+    first_name varchar (20) not null,
+    second_name VARCHAR (20) not null,
+    firs_surname varchar (20) not null,
+    second_surname VARCHAR (20) not NULL,
+    phone BIGINT (10) null,
+    gmail varchar (50) not null
+)
+
+create table services (
+    id BIGINT (10) not null primary key AUTO_INCREMENT,
+    cuts varchar (20) not null,
+    color VARCHAR (20) NOT NULL,
+    hairstyles VARCHAR (20) not null,
+    price BIGINT (50) not null
+)
+
+
+create table calendars (
+    id BIGINT (10) not null primary key AUTO_INCREMENT,
+    hour  varchar (8) not null,
+    date VARCHAR (10) not null,
+    id_clients BIGINT NOT NULL,
+    id_servces BIGINT NOT NULL
+)
+
+insert into clients values 
+(null, 'joher', 'stiven', 'franco', 'alzate', 3146920178, 'joher@gmail.com')
+
+insert into clients values 
+(null, 'nora', 'maria', 'castaño', 'marin', 3149632587, 'nora@gmail.com')
+
+insert into clients values 
+(null, 'julian', 'david', 'franco', 'castrillon', 3156920178, 'julio@hmail.com')
+
+select * from clients
+
+
+INSERT INTO services VALUES
+(null, 'washing_and_drying', 'simple_coloring' ,'bridal_hair', 2100)
+
+SELECT * FROM services

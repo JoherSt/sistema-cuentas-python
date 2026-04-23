@@ -1,0 +1,32 @@
+CREATE TABLE artists (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name varchar (50) NOT NULL,
+    second_name VARCHAR (50) NOT NULL,
+    surname VARCHAR(50) NOT NULL,
+    second_surname varchar(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+     created_at TIMESTAMP,
+    updated_at TIMESTAMP NULL
+)
+
+drop table artists
+
+CREATE TABLE album_names(
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL 
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP NULL
+)
+
+CREATE TABLE songs (
+    id  BIGINT PRIMARY KEY AUTO_INCREMENT,
+     name VARCHAR (50) NOT NULL,
+    release_date VARCHAR (50) NOT NULL,
+    gender VARCHAR(50) NOT NULL
+);
+
+
+CREATE TABLE 
+
+INSERT INTO artists VALUES
+()

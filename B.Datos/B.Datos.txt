@@ -1,0 +1,58 @@
+CREATE TABLE artists (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name varchar (50) NOT NULL,
+     created_at TIMESTAMP,
+    updated_at TIMESTAMP NULL
+)
+
+drop table artists
+
+CREATE TABLE album_names(
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP NULL
+)
+
+CREATE TABLE songs (
+    id  BIGINT PRIMARY KEY AUTO_INCREMENT,
+     name VARCHAR (50) NOT NULL,
+      release_date varchar (20) not null,
+    gender varchar (20) not null
+);
+
+
+CREATE TABLE  artists_album_songs(
+    id  BIGINT PRIMARY KEY AUTO_INCREMENT,
+    artists_id BIGINT NOT NULL,
+    album_names BIGINT NOT NULL,
+    songs BIGINT NOT NULL
+)
+
+DROP Table artists
+
+INSERT INTO artists VALUES
+(NULL, 'blessd',)
+(NULL, 'jbalvin'),
+(NULL, 'arcangel')
+
+SELECT * FROM artists
+
+insert into album VALUES
+(null,'SI SABE '),
+(null,'colores'),
+(null, 'la maravilla')
+
+SELECT * FROM album
+
+
+insert into songs values 
+(null,'condenado al exito II','24/02/2024','pop, regueton'),
+(null,'negro', '19/03/2020','regueton'),
+(null,'tengo tantas ganas de ti', '20/10/2008', ' Pop, UK R&B, Hip-hop/rap')
+
+SELECT * FROM songs
+
+select * from artists
+inner join album_names on
+artists.id  = album_names.album_id
