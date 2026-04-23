@@ -93,3 +93,6 @@ python main.py
 ## Autor
 
 **Joher Franco** — [github.com/JoherSt](https://github.com/JoherSt)
+## Correo
+joherstivenfrancoa@gmail.com
+joherstivenfrancoa@gmail.com
